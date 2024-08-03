@@ -10,7 +10,7 @@ const UsersPage = async ({searchParams}) => {
 const q = searchParams?.q || "";
 const page = searchParams?.page || 1;
 const {count, users} = await fetchUsers(q,page);
-console.log(count)
+
   return (
     <div className='card-block'>
       <div className='flex items-center justify-between'>

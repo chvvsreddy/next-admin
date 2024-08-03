@@ -1,9 +1,14 @@
+import { fetchProducts } from '@/app/lib/data'
 import Pagination from '@/app/ui/dashboard/Pagination'
 import Search from '@/app/ui/dashboard/Search'
 import Image from 'next/image'
 import Link from 'next/link'
 
-const ProductsPage = () => {
+const ProductsPage = async ({searchParams}) => {
+  const q = searchParams?.q || "";
+  const page = searchParams?.page || 1;
+  const {count, products} = await fetchProducts(q,page)
+
   return (
     <div className='card-block'>
     <div className='flex items-center justify-between'>
@@ -22,24 +27,27 @@ const ProductsPage = () => {
               </tr>
           </thead>
           <tbody>
-              <tr className='border-b-2 border-slate-200'>
-                  <td className='p-2 flex items-center gap-2'>
-                      <Image src="/noproduct.jpg" alt='' width={30} height={30} className='ring-gray-300 ring-1 rounded-full'/>
-                      Iphone
-                  </td>
-                  <td className='p-2'>Description</td>
-                  <td className='p-2'>$1500</td>
-                  <td className='p-2'>12 Nov, 2023</td>
-                  <td className='p-2'>Yes</td>
-                  <td className='p-2'>
-                  <Link href='/dashboard/products/singleProduct'><span className='btn-blue'>view</span></Link>  <span className='btn-green'>Delete</span>
-                    </td>
-                  
-              </tr>
+            {products.map(product =>(
+              <tr className='border-b-2 border-slate-200' key={product.id}>
+              <td className='p-2 flex items-center gap-2'>
+                  <Image src={product.img || "/noproduct.jpg"} alt='' width={30} height={30} className='ring-gray-300 ring-1 rounded-full'/>
+                  {product.title}
+              </td>
+              <td className='p-2'>{product.desc}</td>
+              <td className='p-2'>{product.price}</td>
+              <td className='p-2'>{product.createdAt?.String().slice(4,16)}</td>
+              <td className='p-2'>{product.stock}</td>
+              <td className='p-2'>
+              <Link href={`/dashboard/products/${product.id}`}><span className='btn-blue'>view</span></Link>  <span className='btn-green'>Delete</span>
+                </td>
+              
+          </tr>
+            ))}
+              
 
           </tbody>
      </table>
-    <Pagination/>
+    <Pagination count={count}/>
     
   </div>
   )
