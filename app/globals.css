@@ -1,0 +1,47 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+::first-letter {text-transform: uppercase;}
+
+
+  .logout-button {
+    @apply flex items-center gap-2 p-2 mt-2 w-full rounded-md hover:bg-red-100;
+  }
+
+  .box{
+    @apply bg-white rounded-md shadow-md p-4 text-2xl;
+  }
+  .card{
+    @apply bg-white rounded-md shadow-md p-4 flex items-start gap-4 hover:bg-green-100;
+  }
+  .card-block{
+    @apply bg-white rounded-md shadow-md p-4
+  }
+.tooltip{
+ @apply  bg-white text-xs
+}
+.button{
+  @apply bg-blue-800 p-2 px-4 text-white hover:bg-blue-900 rounded-md text-sm
+}
+.btn-red{
+  @apply bg-red-100 p-2 px-4 hover:bg-blue-900 rounded-md text-sm
+}
+.btn-green{
+  @apply bg-green-100 p-2 px-4 hover:bg-blue-900 rounded-md text-sm
+}
+.btn-blue{
+  @apply bg-blue-100 p-2 px-4 hover:bg-blue-900 rounded-md text-sm
+}
+.line-btn{
+  @apply  p-1 px-2 rounded-md text-sm ring ring-1
+}
+
+.form-input{
+  @apply block w-full rounded-md border-0 p-4 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6
+}
+.form-label{
+  @apply block text-sm font-medium leading-6 text-gray-900 mb-2
+}
