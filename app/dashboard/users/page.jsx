@@ -6,10 +6,11 @@ import Link from 'next/link'
 
 
 const UsersPage = async ({searchParams}) => {
- const q = searchParams?.q || "";
-  //const page = searchParams?.page || 1;
-   const users = await fetchUsers(q);
-
+  
+const q = searchParams?.q || "";
+const page = searchParams?.page || 1;
+const {count, users} = await fetchUsers(q,page);
+console.log(count)
   return (
     <div className='card-block'>
       <div className='flex items-center justify-between'>
@@ -49,7 +50,7 @@ const UsersPage = async ({searchParams}) => {
 
             </tbody>
        </table>
-      <Pagination/>
+      <Pagination count={count}/>
       
     </div>
   )

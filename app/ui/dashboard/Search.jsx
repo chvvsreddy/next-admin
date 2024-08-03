@@ -1,6 +1,5 @@
 "use client";
 import { usePathname, useRouter, useSearchParams} from "next/navigation";
-
 import { MdSearch,} from "react-icons/md";
 import { useDebouncedCallback } from "use-debounce";
 
@@ -11,6 +10,7 @@ const Search = ({placeholder}) => {
 
   const handleSearch = useDebouncedCallback((e) =>{    
       const params = new URLSearchParams(searchParams)
+      params.set("page", 1);
       if(e.target.value){
         e.target.value.length > 2 && params.set("q", e.target.value)
       }else{
