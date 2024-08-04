@@ -1,3 +1,4 @@
+import { deleteUser } from '@/app/lib/actions'
 import { fetchUsers } from '@/app/lib/data'
 import Pagination from '@/app/ui/dashboard/Pagination'
 import Search from '@/app/ui/dashboard/Search'
@@ -39,9 +40,13 @@ const {count, users} = await fetchUsers(q,page);
                 <td className='p-2'>{user.createdAt?.toString().slice(4 , 16)}</td>
                 <td className='p-2'>{user.isAdmin ? "Admin":"Client" }</td>
                 <td className='p-2'>{user.isctive ? "Active" : "Passive"}</td>
-                <td className='p-2'>
-                <Link href={`/dashboard/users/${user.id}r`}><span className='btn-blue'>view</span></Link>  <span className='btn-green'>Delete</span>
-                  </td>
+                <td className='p-2 flex items-center gap-2'>
+                <Link href={`/dashboard/users/${user.id}`}><span className='btn-blue'>view</span></Link>  
+                <form action={deleteUser}>
+                  <input type="hidden" name="id" value={user.id}/>
+                <button className='btn-green'>Delete</button>
+                </form>
+                </td>
                 
             </tr>
                 

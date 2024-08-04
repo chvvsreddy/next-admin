@@ -18,7 +18,6 @@ import {
 import MenuLink from "./navbar/menuLink/menuLink";
 import Image from "next/image";
 
-
 // import { auth, signOut } from "@/app/auth";
 
 const menuItems = [
@@ -84,7 +83,8 @@ const menuItems = [
   },
 ];
 
-const Sidebar = () => {
+const Sidebar = async () => {
+  //const session = await auth();
   const pathname = usePathname()
   return (
     <div className="p-6 h-svh">
@@ -110,7 +110,12 @@ const Sidebar = () => {
           </li>
         ))}
       </ul>
+      {/* <form action={async () => {
+        "user server "
+        await signOut();
+      }}> */}
       <Link href="/login"><button className="logout-button"><MdLogout size={20} />Logout</button></Link>
+      {/* </form> */}
     </div>
   )
 }
