@@ -5,7 +5,7 @@ const Transactions = () => {
   return (
     <div className='card-block mt-4'>
         <h2 className='font-semibold'>Latest Transactions</h2>
-        <table classname="table-auto w-full text-left mt-3">
+        <table className="table-auto w-full text-left mt-3">
             <thead className='items-start justify-end'>
                 <tr className='border-b-2 border-slate-200'>
                 <th className='p-2'>Name</th>

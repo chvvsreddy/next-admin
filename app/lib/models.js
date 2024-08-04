@@ -5,7 +5,7 @@ const productSchema = new mongoose.Schema({
    title:{
         type: String,
         required : true,
-        unique : true,
+        //unique : true,
     },
     desc:{
         type: String,
@@ -39,7 +39,7 @@ const userSchema = new mongoose.Schema({
     username:{
         type: String,
         required : true,
-        unique : true,
+        //unique : true,
         min: 3,
         max:20
     },

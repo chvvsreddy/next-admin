@@ -35,7 +35,7 @@ const ProductsPage = async ({searchParams}) => {
               </td>
               <td className='p-2'>{product.desc}</td>
               <td className='p-2'>{product.price}</td>
-              <td className='p-2'>{product.createdAt?.String().slice(4,16)}</td>
+              <td className='p-2'>{product.createdAt?.toString().slice(4,16)}</td>
               <td className='p-2'>{product.stock}</td>
               <td className='p-2'>
               <Link href={`/dashboard/products/${product.id}`}><span className='btn-blue'>view</span></Link>  <span className='btn-green'>Delete</span>

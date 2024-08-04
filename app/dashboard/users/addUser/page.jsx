@@ -1,9 +1,10 @@
+import { addUser } from '@/app/lib/actions'
 import React from 'react'
 
 const AddUser = () => {
   return (
     <div className='card-block'>
-      <form>
+      <form action={addUser}>
         <div className="my-5 grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-8">        
             <div className="sm:col-span-3">
               <label className="form-label">Username</label>
